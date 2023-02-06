@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { uploadImage } from "../api/uploader";
 import Button from "../components/ui/Button";
 
 export default function NewProduct() {
@@ -14,6 +15,9 @@ export default function NewProduct() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    uploadImage(file).then((url) => {
+      console.log(url);
+    });
     //제품의 사진을 cloudinary에 업로드하고 URL을 획득
     //Firebase에 새로운 제품을 추가함.
   };
